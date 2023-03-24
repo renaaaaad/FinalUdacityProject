@@ -3,7 +3,7 @@ import unittest
 import json
 from flask_sqlalchemy import SQLAlchemy
 
-from Main import create_app
+from app import create_app
 from DatabaseHandler import db_drop_and_create_all, setup_db, Movie , Actor, db
 
 class TestCase(unittest.TestCase):
@@ -35,11 +35,11 @@ class TestCase(unittest.TestCase):
 
 
     def testUpdateSpcificMovieFailuer(self):
-        res = self.client().patch("/movies/9999")
+        res = self.client().patch("/movie/9999")
         self.assertEqual(res.status_code, 400)  
         
     def testUpdateSpcificActorFailuer(self):
-        res = self.client().patch("/actors/9999")
+        res = self.client().patch("/actor/9999")
         self.assertEqual(res.status_code, 400)  
         
     def testAddNewMovieSuccess(self):

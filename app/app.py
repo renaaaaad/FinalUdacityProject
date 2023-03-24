@@ -149,7 +149,7 @@ def create_app(test_config=None):
        return jsonify(response)
     
     @app.route('/movie/<int:id>' , methods=['PATCH'])
-    #@requires_auth('patch:movie')
+   # @requires_auth('patch:movie')
     def getMovie(id):
        requstId = id 
        data = request.json

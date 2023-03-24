@@ -7,7 +7,7 @@ import json
 
 project_dir = os.path.dirname(os.path.abspath(__file__))
 database_path = "postgresql://postgres:12345@localhost:5432/AgencyDB"
-database_path = os.environ.get('DATABASE_URL')
+#database_path = os.environ.get('DATABASE_URL')
 
 #database_path = 'postgresql://postgres:12345@localhost:5432/trivia'
 db = SQLAlchemy()

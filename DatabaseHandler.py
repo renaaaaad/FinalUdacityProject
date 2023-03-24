@@ -5,9 +5,9 @@ from sqlalchemy import Column, String, Integer
 from flask_sqlalchemy import SQLAlchemy
 import json
 
-database_filename = "database.db"
+
 project_dir = os.path.dirname(os.path.abspath(__file__))
-database_path = "postgresql://postgres:12345@localhost:5432/AgencyDB"
+database_path = os.environ.get('DATABASE_URL')
 #database_path = 'postgresql://postgres:12345@localhost:5432/trivia'
 db = SQLAlchemy()
 

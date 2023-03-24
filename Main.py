@@ -29,7 +29,7 @@ def create_app(test_config=None):
     
     
     @app.route('/movies' , methods=['GET'])
-    @requires_auth('get:movies')
+    #@requires_auth('get:movies')
     def getMovies():
        result = db.session.query(Movie).all()
        
@@ -41,7 +41,7 @@ def create_app(test_config=None):
 
 
     @app.route('/actors' , methods=['GET'])
-    @requires_auth('get:actors')
+    #@requires_auth('get:actors')
     def getActors():
         
        result = db.session.query(Actor).all()
@@ -55,7 +55,7 @@ def create_app(test_config=None):
     
     
     @app.route('/actor' , methods=['POST'])
-    @requires_auth('post:actor')
+    #@requires_auth('post:actor')
     def AddActor():
        data = request.json
        if(data.get('name')==None or data.get('gender')==None or data.get('age')==None):
@@ -73,7 +73,7 @@ def create_app(test_config=None):
     
     
     @app.route('/movie' , methods=['POST'])
-    @requires_auth('post:movie')
+    #@requires_auth('post:movie')
     def AddMovie():
        data = request.json
        if(data.get('title')==None or data.get('release_date')==None):
@@ -91,7 +91,7 @@ def create_app(test_config=None):
     
     
     @app.route('/movie/<int:id>' , methods=['DELETE'])
-    @requires_auth('delete:movie')
+    #@requires_auth('delete:movie')
     def deleteMovie(id):
        requstId = id 
        count = Movie.query.filter_by(id=requstId).count()
@@ -109,7 +109,7 @@ def create_app(test_config=None):
     
     
     @app.route('/actor/<int:id>' , methods=['DELETE'])
-    @requires_auth('delete:actor')
+    #@requires_auth('delete:actor')
     def deleteActor(id):
        requstId = id 
        count = Actor.query.filter_by(id=requstId).count()
@@ -125,7 +125,7 @@ def create_app(test_config=None):
        return jsonify(response)
     
     @app.route('/actor/<int:id>' , methods=['PATCH'])
-    @requires_auth('patch:actor')
+    #@requires_auth('patch:actor')
     def getActor(id):
        requstId = id 
        data = request.json
@@ -149,7 +149,7 @@ def create_app(test_config=None):
        return jsonify(response)
     
     @app.route('/movie/<int:id>' , methods=['PATCH'])
-    @requires_auth('patch:movie')
+    #@requires_auth('patch:movie')
     def getMovie(id):
        requstId = id 
        data = request.json
